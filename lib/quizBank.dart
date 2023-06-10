@@ -1,0 +1,117 @@
+import 'question.dart';
+import 'dart:math';
+
+class QuizBank{
+  int _qNumber =  0;
+  final List<int> _cache = [];
+  final List<Question> _questionList = [
+    Question("The Earth is the largest planet in the solar system.", false),
+    Question("Mount Everest is the tallest mountain in the world.", true),
+    Question("The Great Wall of China can be seen from space.", false),
+    Question("Water boils at 100 degrees Fahrenheit.", false),
+    Question("The capital of Australia is Sydney.", false),
+    Question("The Atlantic Ocean is the largest ocean on Earth.", false),
+    Question("The Statue of Liberty was a gift from France to the United States.", true),
+    Question("The Mona Lisa was painted by Pablo Picasso.", false),
+    Question("The human body has a total of 206 bones.", true),
+    Question("Neil Armstrong was the first person to walk on the moon.", true),
+    Question("The Great Barrier Reef is located in the Atlantic Ocean.", false),
+    Question("Cheetahs are the fastest land animals.", true),
+    Question("The currency of Japan is the yen.", true),
+    Question("The Amazon River is the longest river in the world.", false),
+    Question("The planet Saturn has the most number of moons in our solar system.", true),
+    Question("The human brain is made up of two hemispheres.", true),
+    Question("The Eiffel Tower is located in Paris, France.", true),
+    Question("Elephants are the largest living land animals.", true),
+    Question("The speed of light is faster than the speed of sound.", true),
+    Question("The country with the most population is China.", true),
+    Question("The planet Venus is closer to the Sun than the Earth.", true),
+    Question("The national animal of Canada is the beaver.", true),
+    Question("Gold is a chemical element with the symbol Au.", true),
+    Question("The Sahara Desert is the largest hot desert in the world.", true),
+    Question("Jupiter is the fifth planet from the Sun.", false),
+    Question("The human heart has four chambers.", false),
+    Question("The famous painting 'Starry Night' was created by Leonardo da Vinci.", false),
+    Question("The currency of Brazil is the real.", true),
+    Question("The Colosseum is located in Athens, Greece.", false),
+    Question("The Arctic Circle is located in the Southern Hemisphere.", false),
+    Question("The Nile River flows through Egypt.", true),
+    Question("The planet Mars is often called the 'Red Planet'.", true),
+    Question("The Mona Lisa is displayed in the Louvre Museum.", true),
+    Question("The speed of sound is faster than the speed of light.", false),
+    Question("The currency of India is the rupee.", true),
+    Question("The bird with the largest wingspan is the albatross.", true),
+    Question("The country known for its tulip fields is the Netherlands.", true),
+    Question("The element with the symbol Fe on the periodic table is iron.", true),
+    Question("The Taj Mahal is located in Agra, India.", true),
+    Question("Sharks are mammals.", false),
+    Question("The country with the longest coastline is Canada.", true),
+    Question("The planet Neptune is the farthest planet from the Sun.", true),
+    Question("The currency of Russia is the ruble.", true),
+    Question("The painting 'The Starry Night' was created by Vincent van Gogh.", true),
+    Question("The highest mountain in North America is Mount McKinley.", false),
+    Question("The Sydney Opera House is located in Australia.", true),
+    Question("The chemical symbol for oxygen is O2.", false),
+    Question("The country with the largest land area is Russia.", true),
+    Question("The planet Mercury is larger than the planet Venus.", false),
+    Question("The Olympic Games originated in ancient Greece.", true),
+    Question("The currency of South Africa is the rand.", true),
+    Question("The Mona Lisa was painted by Michelangelo.", false),
+    Question("The African elephant is larger than the Asian elephant.", true),
+    Question("The planet Uranus is known as the 'Blue Planet'.", false),
+    Question("The United Kingdom is made up of five countries.", false),
+    Question("The chemical symbol for silver is Ag.", true),
+    Question("The planet Jupiter has the most number of moons in our solar system.", true),
+    Question("The country with the largest population in Europe is Germany.", false),
+    Question("The largest ocean on Earth is the Indian Ocean.", false),
+    Question("The currency of Mexico is the peso.", true),
+    Question("The painting 'The Last Supper' was created by Pablo Picasso.", false),
+    Question("The highest waterfall in the world is Angel Falls.", true),
+    Question("The planet Pluto is considered a dwarf planet.", true),
+    Question("The country known for its pyramids is Egypt.", true),
+    Question("The chemical symbol for hydrogen is H2.", false),
+    Question("The country with the most Nobel laureates is the United States.", true),
+    Question("The Mediterranean Sea is the largest sea on Earth.", false),
+    Question("The currency of China is the yuan.", true),
+    Question("The painting 'Girl with a Pearl Earring' was created by Leonardo da Vinci.", false),
+    Question("The highest mountain in South America is Mount Aconcagua.", true),
+    Question("The country with the largest rainforest is Brazil.", true),
+    Question("The chemical symbol for carbon is C.", true),
+    Question("The planet Earth has two moons.", false),
+    Question("The capital of France is Paris.", true),
+    Question("The largest continent on Earth is Africa.", false),
+    Question("The currency of Japan is the yen.", true),
+    Question("The painting 'The Persistence of Memory' was created by Pablo Picasso.", false),
+    Question("The deepest part of the ocean is the Mariana Trench.", true),
+    Question("The planet Venus is closer to the Sun than the planet Mercury.", false),
+    Question("The country with the highest number of UNESCO World Heritage Sites is Italy.", true),
+    Question("The chemical symbol for gold is Au.", true),
+    Question("The country with the longest river in the world is Brazil.", false),
+    Question("The currency of Canada is the euro.", false),
+    Question("The painting 'Guernesiais' was created by Pablo Picasso.", true),
+    Question("The largest desert on Earth is the Gobi Desert.", false),
+    Question("The planet Saturn has rings.", true),
+    Question("The country with the highest life expectancy is Japan.", true),
+    Question("The chemical symbol for nitrogen is N.", true),
+    Question("The country with the most number of islands is Indonesia.", true),
+    Question("The painting 'The Birth of Venus' was created by Leonardo da Vinci.", false),
+    Question("The longest river in Europe is the Danube River.", false),
+    Question("The currency of Germany is the deutsche mark.", false),
+    Question("The painting 'The Creation of Adam' is part of the Sistine Chapel ceiling.", true),
+    Question("The country with the largest Muslim population is Indonesia.", true),
+    Question("The chemical symbol for sodium is So.", false),
+    Question("The country with the highest number of Olympic gold medals is the United States.", true)
+  ];
+
+  void increment(){
+    do{
+      _qNumber = Random().nextInt(_questionList.length);
+    } while (_cache.contains(_qNumber));
+    _cache.add(_qNumber);
+  }
+  String nextQuestion(){
+    increment();
+    return _questionList[_qNumber].getQuestion();
+  }
+  bool getAnswer() => _questionList[_qNumber].getAnswer();
+}
